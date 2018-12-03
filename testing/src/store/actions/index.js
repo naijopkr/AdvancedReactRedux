@@ -1,3 +1,4 @@
 export {
-  saveComment
+  saveComment,
+  fetchComments
 }  from './comments'
