@@ -1,7 +1,17 @@
+const jwt = require('jwt-simple')
 const User = require('../models/user')
+const config = require('../config')
+
+const tokenForUser = user => {
+  return jwt.encode({ sub: user.id, iat: new Date().getTime() }, config.secret)
+}
 
 exports.signup = (req, res, next) => {
   const { email, password } = req.body
+
+  if (!email || !password) {
+    return res.status(422).send({ error: 'You must provide an e-mail and password' })
+  }
 
   //See if a user with the given email exists
   User.findOne({ email }, (err, user) => {
@@ -21,7 +31,7 @@ exports.signup = (req, res, next) => {
   user.save((err) => {
     if (err) { return next(err) }
 
-    res.json({ success: 'true' })
+    res.json({ token: tokenForUser(user) })
   })
 
   //Respond to request incating that the user was created
