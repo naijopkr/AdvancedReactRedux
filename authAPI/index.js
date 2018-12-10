@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const router = require('./router')
 const mongoose = require('mongoose')
-const http = require('http')
 
 const app = express()
 
@@ -21,7 +20,6 @@ router(app)
 
 //Server Setup
 const port = process.env.PORT || 5000
-const server = http.createServer(app)
-server.listen(port, () => {
+app.listen(port, () => {
   console.log('Server is up!')
 })

@@ -12,7 +12,7 @@ const userSchema = new Schema({
   password: String
 })
 
-userSchema.pre('save', next => {
+userSchema.pre('save', function(next) {
   let user = this
 
   bcrypt.genSalt(10, (err, salt) => {
@@ -21,16 +21,13 @@ userSchema.pre('save', next => {
     bcrypt.hash(user.password, salt, null, (err, hash) => {
       if (err) { return next(err) }
 
-      user = {
-        ...user,
-        password: hash
-      }
+      user.password = hash
       next()
     })
   })
 })
 
-userSchema.methods.comparePassword = (candidatePassword, callback) => {
+userSchema.methods.comparePassword = function(candidatePassword, callback) {
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
     if (err) { return callback(err) }
 
