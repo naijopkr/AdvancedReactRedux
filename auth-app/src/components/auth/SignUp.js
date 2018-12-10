@@ -1,9 +1,20 @@
 import React, { Component } from 'react'
 
 class SignUp extends Component {
+  handleSubmit = evt => {
+    evt.preventDefault()
+    const email = evt.target.email.value
+    const password = evt.target.password.value
+    const user = {
+      email,
+      password
+    }
+    console.log(user)
+  }
+
   render = () => {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <fieldset>
           <label>Email</label>
           <input 
@@ -18,6 +29,7 @@ class SignUp extends Component {
             type='password'
           />
         </fieldset>
+        <button>Enviar</button>
       </form>
     )
   }
