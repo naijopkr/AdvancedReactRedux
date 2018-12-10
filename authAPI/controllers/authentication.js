@@ -33,7 +33,4 @@ exports.signup = (req, res, next) => {
 
     res.json({ token: tokenForUser(user) })
   })
-
-  //Respond to request incating that the user was created
-
 }

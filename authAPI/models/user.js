@@ -13,7 +13,7 @@ const userSchema = new Schema({
 })
 
 userSchema.pre('save', next => {
-  const user = this
+  let user = this
 
   bcrypt.genSalt(10, (err, salt) => {
     if (err) { return next(err) }
