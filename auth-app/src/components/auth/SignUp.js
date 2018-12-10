@@ -6,9 +6,17 @@ class SignUp extends Component {
       <form>
         <fieldset>
           <label>Email</label>
+          <input 
+            name='email'
+            type='text'
+          />
         </fieldset>
         <fieldset>
           <label>Password</label>
+          <input
+            name='password'
+            type='password'
+          />
         </fieldset>
       </form>
     )
