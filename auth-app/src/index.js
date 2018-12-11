@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import reduxThunk from 'redux-thunk'
 
 import reducers from './store/reducers'
 
@@ -11,7 +12,11 @@ import Welcome from './components/cover/Welcome'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 
-const store = createStore(reducers, {})
+const store = createStore(
+  reducers, 
+  {},
+  applyMiddleware(reduxThunk)
+)
 
 const app = (
   <Provider store={store}>

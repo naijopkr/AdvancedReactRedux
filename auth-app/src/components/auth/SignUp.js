@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import * as actions from '../../store/actions'
 
 class SignUp extends Component {
   handleSubmit = evt => {
@@ -9,7 +12,7 @@ class SignUp extends Component {
       email,
       password
     }
-    console.log(user)
+    this.props.signup(user)
   }
 
   render = () => {
@@ -35,4 +38,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp
+export default connect(null, actions)(SignUp)
