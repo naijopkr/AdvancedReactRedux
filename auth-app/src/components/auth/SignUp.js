@@ -12,7 +12,9 @@ class SignUp extends Component {
       email,
       password
     }
-    this.props.signup(user)
+    this.props.signup(user, () => {
+      this.props.history.push('/feature')
+    })
   }
 
   render = () => {

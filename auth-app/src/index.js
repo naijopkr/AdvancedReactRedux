@@ -11,6 +11,8 @@ import App from './components/App'
 import Welcome from './components/cover/Welcome'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
+import Feature from './components/feature/Feature'
+import SignOut from './components/auth/SignOut'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -27,6 +29,8 @@ const app = (
         <Route path='/' exact component={Welcome} />
         <Route path='/signup' component={SignUp} />
         <Route path='/signin' component={SignIn} />
+        <Route path='/feature' component={Feature} />
+        <Route path='/signout' component={SignOut} />
       </App>
     </BrowserRouter>
   </Provider>
