@@ -32,10 +32,15 @@ class SignUp extends Component {
             type='password'
           />
         </fieldset>
-        <button>Enviar</button>
+        <div>{this.props.errorMessage}</div>
+        <button>Sign Up</button>
       </form>
     )
   }
 }
 
-export default connect(null, actions)(SignUp)
+const mapStateToProps = state => {
+  return { errorMessage: state.auth.errorMessage }
+}
+
+export default connect(mapStateToProps, actions)(SignUp)
