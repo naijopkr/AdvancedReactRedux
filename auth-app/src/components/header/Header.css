@@ -1,0 +1,15 @@
+.header {
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.header a {
+  padding: 10px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.header a:hover {
+  color: #ffffff;
+  background: #00000088;
+}
