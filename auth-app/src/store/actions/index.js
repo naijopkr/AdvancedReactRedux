@@ -1,4 +1,5 @@
 export {
   signup,
-  signout
+  signout,
+  signin
 } from './auth'
